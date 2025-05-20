@@ -17,5 +17,17 @@ namespace moja_lista_wpf
         {
             InitializeComponent();
         }
+
+        private void SearchTextBoxGotFocus(object sender, RoutedEventArgs e)
+        {
+            searchTextBox.Text = "";
+            searchTextBox.Foreground = Brushes.Black;
+        }
+
+        private void SearchTextBoxLostFocus(object sender, RoutedEventArgs e)
+        {
+            searchTextBox.Text = "Wyszukaj zadanie..";
+            searchTextBox.Foreground = Brushes.DimGray;
+        }
     }
 }

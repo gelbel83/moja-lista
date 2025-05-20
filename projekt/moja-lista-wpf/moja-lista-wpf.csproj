@@ -9,4 +9,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="filtr.png" />
+    <None Remove="lupa.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="filtr.png" />
+    <Resource Include="lupa.png" />
+  </ItemGroup>
+
 </Project>
