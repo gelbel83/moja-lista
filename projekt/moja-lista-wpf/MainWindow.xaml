@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:moja_lista_wpf"
         mc:Ignorable="d"
-        Title="Moja Lista" Height="600" Width="350" ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen">
+        Title="Moja Lista" Height="600" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -14,13 +14,13 @@
         </Grid.RowDefinitions>
         
         <!--Wyszukiwanie i filtry-->
-        <Grid>
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <Border  Grid.Column="0" CornerRadius="10" BorderBrush="Black" BorderThickness="1" Background="White" Margin="10, 15" Padding="3">
+            <Border Grid.Column="0" CornerRadius="10" BorderBrush="Black" BorderThickness="1" Background="White" Margin="10, 15" Padding="3">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="9*" />
@@ -28,7 +28,9 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBox x:Name="searchTextBox" Text="Wyszukaj zadanie.." Foreground="DimGray" Grid.Column="0" BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Background="Transparent" GotFocus="SearchTextBoxGotFocus" LostFocus="SearchTextBoxLostFocus" />
-                    <Image Grid.Column="1" Source="/lupa.png" />
+                    <Button Grid.Column="1">
+                        <Image  Source="lupa.png" />
+                    </Button>
                 </Grid>
             </Border>
 
@@ -38,16 +40,34 @@
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    
+
                     <Button Grid.Column="0" Content="Filtry" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="12" />
-                    <Image Grid.Column="1" Source="/filtr.png" />
+                    <Image Grid.Column="1" Source="filtr.png" />
                 </Grid>
             </Border>
         </Grid>
            
         <!--Zadania-->
-        <Border>
-            
+        <Border Grid.Row="1" CornerRadius="10" Padding="3" BorderBrush="Black" BorderThickness="1" Background="White" Margin="10, 5">
+            <StackPanel>
+                
+            </StackPanel>
         </Border>
+        
+        <!--Przyciski-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" CornerRadius="10" BorderBrush="Black" BorderThickness="1" Background="White" Margin="10, 15" Padding="3">
+                <Button  Content="Wyczyść" BorderThickness="0" Background="Transparent" />
+            </Border>
+
+            <Border Grid.Column="1" CornerRadius="10" BorderBrush="Black" BorderThickness="1" Background="White" Margin="10, 15" Padding="3">
+                <Button  Content="Dodaj zadanie" BorderThickness="0" Background="Transparent" Click="AddTaskButtonClick" />
+            </Border>
+        </Grid>
     </Grid>
 </Window>

@@ -26,8 +26,17 @@ namespace moja_lista_wpf
 
         private void SearchTextBoxLostFocus(object sender, RoutedEventArgs e)
         {
-            searchTextBox.Text = "Wyszukaj zadanie..";
-            searchTextBox.Foreground = Brushes.DimGray;
+            if(string.IsNullOrWhiteSpace(searchTextBox.Text))
+            {
+                searchTextBox.Text = "Wyszukaj zadanie..";
+                searchTextBox.Foreground = Brushes.DimGray;
+            }
+        }
+
+        private void AddTaskButtonClick(object sender, RoutedEventArgs e)
+        {
+            AddTaskWindow addTaskWindow = new AddTaskWindow();
+            addTaskWindow.Show();
         }
     }
 }
